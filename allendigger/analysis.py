@@ -334,6 +334,7 @@ def section_find_differential_expression_marker(time,
     genes = adata.var.index.tolist()
     result = {}
     genes = adata.var['gene'].tolist()
+    adata.var.set_index("gene", inplace=True, drop=False)
     for label in labels:
         df = pd.DataFrame(index=adata.var['gene'].tolist(), columns=['auc', 'pvalue', 'log2FC'])
         x = adata[adata.obs[anno_level] == label]
