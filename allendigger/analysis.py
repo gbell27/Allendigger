@@ -165,7 +165,7 @@ def get_spatial_domain(
     min_max_scaler = preprocessing.MinMaxScaler()
     mat = min_max_scaler.fit_transform(mat)
     # generator tensor
-    mat = torch.tensor(mat)
+    mat = torch.tensor(mat, dtype=torch.float32)
     nodes = mat
     if verbose:
         print('Spatial Network construction completed'+'\n')
